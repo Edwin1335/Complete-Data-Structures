@@ -23,8 +23,8 @@ public:
 	Student(int, string);			// Oveerloaded costructor for intialization
 
 	bool isEmpty();					// Check if the stack is empty
-	void pushStudent(int, string);	// Add Students to the stack 
-	void popStudent();				// Delete students to the stack 
+	void push(int, string);	// Add Students to the stack 
+	void pop();				// Delete students to the stack 
 	void printStack();				// Print the Stack but pops all the students
 	void reverseStack();			// Reverses the stack using two temporary Student objects
 	void printRecursive();			// Prints the stack using recusion wihtout delteing all students
@@ -44,7 +44,7 @@ Student::Student()
 // Overloaded constructor, increments the 
 Student::Student(int ID, string name)
 {
-	pushStudent(ID, name);
+	push(ID, name);
 	totalStudents++;
 }
 
@@ -58,7 +58,7 @@ bool Student::isEmpty()
 }
 
 // Adds a student to the stack 
-void Student::pushStudent(int ID, string name)
+void Student::push(int ID, string name)
 {
 	Node* newNode = new Node;
 	newNode->ID = ID;
@@ -76,7 +76,7 @@ void Student::pushStudent(int ID, string name)
 }
 
 // Deletes a student from the stack 
-void Student::popStudent()
+void Student::pop()
 {
 	if (!isEmpty())
 	{
@@ -96,21 +96,21 @@ void Student::reverseStack()
 	Student temp1;
 	while (!isEmpty())
 	{
-		temp1.pushStudent(this->head->ID, this->head->name);
-		this->popStudent();
+		temp1.push(this->head->ID, this->head->name);
+		this->pop();
 	}
 
 	Student temp2;
 	while (!temp1.isEmpty())
 	{
-		temp2.pushStudent(temp1.head->ID, temp1.head->name);
-		temp1.popStudent();
+		temp2.push(temp1.head->ID, temp1.head->name);
+		temp1.pop();
 	}
 
 	while (!temp2.isEmpty())
 	{
-		this->pushStudent(temp2.head->ID, temp2.head->name);
-		temp2.popStudent();
+		this->push(temp2.head->ID, temp2.head->name);
+		temp2.pop();
 	}
 }
 
@@ -124,7 +124,7 @@ void Student::printStack()
 		{
 			cout << "Student: " << head->name << endl;
 			cout << "Id: " << head->ID << endl << endl;
-			this->popStudent();
+			this->pop();
 		}
 	}
 	else
@@ -138,14 +138,14 @@ void Student::printRecursive()
 	{
 		int ID = head->ID;
 		string name = head->name;
-		this->popStudent();
+		this->pop();
 
 		cout << "Student: " << name << endl;
 		cout << "ID: " << ID << endl;
 
 		printRecursive();
 
-		this->pushStudent(ID, name);
+		this->push(ID, name);
 	}
 }
 
@@ -157,13 +157,13 @@ void Student::printReverse()
 	{
 		int ID = head->ID;
 		string name = head->name;
-		this->popStudent();
+		this->pop();
 		printReverse();
 
 		cout << "Student: " << name << endl;
 		cout << "ID: " << ID << endl;
 
-		this->pushStudent(ID, name);
+		this->push(ID, name);
 	}
 }
 
@@ -172,7 +172,7 @@ Student::~Student()
 {
 	while (head != NULL)
 	{
-		this->popStudent();
+		this->pop();
 	}
 	delete head;
 }
