@@ -4,11 +4,11 @@ int main()
 {
 	Student roster;
 
-	roster.pushStudent(123, "Edwin");
-	roster.pushStudent(34, "Arrakachan");
-	roster.pushStudent(345, "John");
-	roster.pushStudent(67, "Ninfa");
-	roster.pushStudent(979, "Sal");
+	roster.push(123, "Edwin");
+	roster.push(34, "Arrakachan");
+	roster.push(345, "John");
+	roster.push(67, "Ninfa");
+	roster.push(979, "Sal");
 	roster.printRecursive();
 	roster.reverseStack();
 	cout << "Reverse" << endl << endl;
