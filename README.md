@@ -8,7 +8,7 @@ All of the code is written in C++ 11 and can be compiled using the
 "g++ -std=c++11 file_name.cpp -o your_executable". Some may not require 
 the specification of "-std=c++11", but its good practice to add it anyway.
 
-Data Structures added to "Complete-Data-Structures"
+Data Structures added to "Complete-Data-Structures":
     List
         Single Linked List
         Circular Linked List
