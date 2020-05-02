@@ -6,7 +6,7 @@
 
 using namespace std;
 /*
-	This is an abstract class that will be inherited by Binary Search Tree and AVL Tree. 
+	This is an abstract class that will be inherited by Binary Search Tree and AVL Tree.
 	The class will be using templates to make it more versatile for all datatypes.
 */
 
@@ -24,24 +24,24 @@ template <class T>
 class BinaryTree
 {
 private:
-	void makeInsertion(Node<T> *&, Node<T> *&);
+	void makeInsertion(Node<T>*&, Node<T>*&);
 	/*
-		Make Insertion funtion will be used in the InsertData funtion so it 
+		Make Insertion funtion will be used in the InsertData funtion so it
 		can iterate recusrsivly. The parameter are two adresses of pointers to nodes
-		one for the root and another for the node being inserted.		
+		one for the root and another for the node being inserted.
 	*/
 
-	int countLeafs(Node<T> *&);
+	int countLeafs(Node<T>*&);
 	/*
 		The countLeaf funtion will be passed into the treeLeafCount function(which will
-		return an integer). The function will itearbly loop through all the nodes and find 
+		return an integer). The function will itearbly loop through all the nodes and find
 		the leaf node( nodes that have a left and right null pointers) and count them.
 	*/
 
-	int countNodes(Node<T> *&);
+	int countNodes(Node<T>*&);
 	/*
 		Similar to the count leafs funtion, this will count all the nodes in the tree including
-		the root node. 
+		the root node.
 	*/
 
 	void inOrder(Node<T>*&);
@@ -63,8 +63,8 @@ protected:
 
 public:
 	BinaryTree();
-	bool isEmpty();			
-	void insertData(T);	
+	bool isEmpty();
+	void insertData(T);
 	virtual bool searchData(T) = 0;
 	virtual void deleteData(T) = 0;
 	int treeLeafsCount();
@@ -98,7 +98,7 @@ void BinaryTree<T>::insertData(T x)
 }
 
 template <class T>
-void BinaryTree<T>::makeInsertion(Node<T> *&root, Node<T> *&newNode)
+void BinaryTree<T>::makeInsertion(Node<T>*& root, Node<T>*& newNode)
 {
 	if (root == NULL)
 		root = newNode;
@@ -117,7 +117,7 @@ int BinaryTree<T>::treeLeafsCount()
 }
 
 template <class T>
-int BinaryTree<T>::countLeafs(Node<T> *&root)
+int BinaryTree<T>::countLeafs(Node<T>*& root)
 {
 	if (root == NULL)
 		return 0;
@@ -149,7 +149,7 @@ void BinaryTree<T>::printOrder()
 }
 
 template <class T>
-void BinaryTree<T>::inOrder(Node<T> *& node)
+void BinaryTree<T>::inOrder(Node<T>*& node)
 {
 	if (node != NULL)
 	{
@@ -166,7 +166,7 @@ void BinaryTree<T>::printPostOrder()
 }
 
 template <class T>
-void BinaryTree<T>::postOrder(Node<T> *& node)
+void BinaryTree<T>::postOrder(Node<T>*& node)
 {
 	if (node != NULL)
 	{
