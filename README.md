@@ -9,12 +9,17 @@ All of the code is written in C++ 11 and can be compiled using the
 the specification of "-std=c++11", but its good practice to add it anyway.
 
 Data Structures added to "Complete-Data-Structures"
-    Linked List
+    List
+        Single Linked List
+        Circular Linked List
+        Doubly Linked Lits
     Stacks
-    Queues
-    Binary Trees
-    Binary Search Trees
-    AVL Trees
+        Stack with Arrays
+        Stacks with linked list
+    Trees
+        Binary Trees
+        Binary Search Trees
+        AVL Trees
 
 
 UPDATE: May 1, 2020
