@@ -24,7 +24,7 @@ Data Structures added to "Complete-Data-Structures":
 
 UPDATE: May 1, 2020
     Currently not all classes are completed, still needs to check wich ones.
-    Will need to delete all namespce std evetually. Must replace std:: for all classes.
+    Will need to delete all namespace std evetually. Must replace std:: for all classes.
     Currently working on StackWithLinkedList(Template).
     Will work my way up the line.
 
