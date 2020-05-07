@@ -70,17 +70,18 @@ void Queue::enQueue(int x)
 
 int Queue::deQueue()
 {
-	if (isEmpty())
-	{
-		cout << "ERROR: List is empty" << endl;
-	}
-	else
+	if(!isEmpty())
 	{
 		front = (front + 1) % size;
 		int x = myQueue[front];
 		totalItems--;
 		return x;
 	}
+    else
+    {
+        cout << "ERROR: List is empty" << endl;
+    }
+    return -1;
 }
 
 void Queue::print()

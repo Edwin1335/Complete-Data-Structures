@@ -8,6 +8,7 @@ int main()
 	x.enQueue(400);
 	x.enQueue(500);
 	x.enQueue(600);
+    x.deQueue();
 	x.print();
 	if (x.search(234))
 		cout << "Found";
@@ -15,5 +16,6 @@ int main()
 		cout << "Not found" << endl;
 
 	system("pause");
+    system("CLS");
 	return 0;
 }
