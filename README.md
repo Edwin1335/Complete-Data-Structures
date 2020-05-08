@@ -34,6 +34,11 @@ UPDATE: May 5, 2020
     is not complete and its not required to be here.
     Updated the files to include std::.
 
+UPDATE: May 6, 2020
+    Working on the BinarySearchTree fodlder to practice deletion. 
+    
+
 NEEDs FIX:
     StackWithLinkedList(Template) -> Stack.H -> inst_mult();
+    BinarySearchTree(Template) -> BinarySearchTree.h -> makeDeletion();
 
