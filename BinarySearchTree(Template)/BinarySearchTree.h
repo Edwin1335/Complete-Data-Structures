@@ -6,22 +6,16 @@ class BinarySearchTree : public BinaryTree<T>
 {
 private:
     bool beginSeach(Node<T> *&, T);
-    void deleteData(Node<T> *&, Node<T> *&, T);
-
-    /****************************************************************************
-		Make Insertion funtion will be used in the InsertData funtion so it
-		can iterate recusrsivly. The parameter are two adresses of pointers to 
-        nodes one for the root and another for the node being inserted.
-	****************************************************************************/
     void makeInsertion(Node<T> *&, Node<T> *&);
+    Node<T> *makeDeletion(Node<T> *&);
     void display(Node<T> *&, int);
-    void makeDeletion(Node<T> *&, Node<T> *&);
+    void deleteData(Node<T> *&, T);
 
 public:
     BinarySearchTree();
     bool searchData(T);
-    void deleteData(T);
     void insertData(T);
+    void deleteData(T);
     void display();
 };
 
@@ -51,50 +45,9 @@ bool BinarySearchTree<T>::beginSeach(Node<T> *&node, T x)
 }
 
 template <class T>
-void BinarySearchTree<T>::deleteData(T x)
-{
-    this->deleteData(this->root, this->root, x);
-}
-
-template <class T>
-void BinarySearchTree<T>::deleteData(Node<T> *&node, Node<T> *&prev, T x)
-{
-    if (x > node->data)
-        deleteData(node->right, node, x);
-    else if (x < node->data)
-        deleteData(node->left, node, x);
-    else
-        this->makeDeletion(node, prev);
-}
-
-template <class T>
-void BinarySearchTree<T>::makeDeletion(Node<T> *&node, Node<T> *&prev)
-{
-    if (node == NULL)
-    {
-        delete node;
-        prev->left = NULL;
-        prev->right = NULL;
-    }
-    else if (node->right == NULL)
-    {
-        Node<T> *newNode = node->left;
-        Node<T> *prev = newNode;
-        while (newNode->right != NULL)
-        {
-            prev = newNode;
-            newNode = newNode->right;
-        }
-        prev->right = NULL;
-        node->data = newNode->data;
-        delete newNode;
-    }
-}
-
-template <class T>
 void BinarySearchTree<T>::insertData(T x)
 {
-    Node<T>* newNode = new Node<T>;
+    Node<T> *newNode = new Node<T>;
     newNode->left = NULL;
     newNode->right = NULL;
     newNode->data = x;
@@ -113,6 +66,64 @@ void BinarySearchTree<T>::makeInsertion(Node<T> *&root, Node<T> *&newNode)
         makeInsertion(root->right, newNode);
     else
         delete newNode;
+}
+
+template <class T>
+void BinarySearchTree<T>::deleteData(T x)
+{
+    this->deleteData(this->root, x);
+}
+
+template <class T>
+void BinarySearchTree<T>::deleteData(Node<T> *&node, T x)
+{
+    // Check if tree is not empty.
+    if (node == NULL)
+        std::cout << "ERROR: Cannot delete from an empty tree" << std::endl;
+    else
+    {
+        // Create a node to traverse and another to follow behind.
+        Node<T> *current = this->root;
+        Node<T> *trail = new Node<T>;
+        bool found = false;
+
+        // Loop unitl you find the valu or until you reach the end.
+        while (current != NULL && !found)
+        {
+            if (current->data == x)
+                found = true;
+            else
+            {
+                trail = current;
+
+                if (x > current->data)
+                    current = current->right;
+                else
+                    current = current->left;
+            }
+        }
+
+        // If value was not found.
+        if (current == NULL)
+        {
+            std::cout << "ERROR: Value " << x << " to delete not found" << std::endl;
+            return;
+        }
+        else
+        {
+            if (current == this->root)
+                this->root = makeDeletion(current);
+            else if (trail->data > x)
+        }
+    }
+}
+
+template <class T>
+Node<T> *BinarySearchTree<T>::makeDeletion(Node<T> *&del)
+{
+    if (del->left == NULL && del->right == NULL)
+    {
+    }
 }
 
 template <class T>
