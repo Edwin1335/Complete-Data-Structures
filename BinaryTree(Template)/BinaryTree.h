@@ -13,9 +13,9 @@
 template <class T>
 struct Node
 {
-	T data;
-	Node<T>* left;
-	Node<T>* right;
+    T data;
+    Node<T> *left;
+    Node<T> *right;
 };
 
 // Class defintion.
@@ -23,7 +23,7 @@ template <class T>
 class BinaryTree
 {
 private:
-    int countLeafs(Node<T>*&);
+    int countLeafs(Node<T> *&);
     /****************************************************************************
 		The countLeaf funtion will be passed into the treeLeafCount function 
         (which will return an integer). The function will itearbly loop through 
@@ -31,144 +31,174 @@ private:
         null pointers) and count them.
 	****************************************************************************/
 
-    int countNodes(Node<T>*&);
+    int countNodes(Node<T> *&);
     /****************************************************************************
 		Similar to the count leafs funtion, this will count all the nodes in the 
         tree including the root node.
 	****************************************************************************/
 
-    void inOrder(Node<T>*&);
+    void inOrder(Node<T> *&);
     /****************************************************************************
 		This funtion will print the tree in order
 	****************************************************************************/
 
-    void postOrder(Node<T>*&);
+    void reverseOrder(Node<T> *&);
+    /****************************************************************************
+		This funtion will print the tree in reverse order
+	****************************************************************************/
+    void postOrder(Node<T> *&);
     /****************************************************************************
 		This funtion will print the tree in post order.
 	****************************************************************************/
 
-    void preOrder(Node<T>*&);
+    void preOrder(Node<T> *&);
     /****************************************************************************
 		This funtion will print the tree in post order.
 	****************************************************************************/
 
 protected:
-    Node<T>* root;
+    Node<T> *root;
     // Default constructor.
-	BinaryTree();
+    BinaryTree();
     // Chek if tree is empty.
-	bool isEmpty();
-    // Add data to the tree. 
-	virtual void insertData(T) = 0;
+    bool isEmpty();
+    // Add data to the tree.
+    virtual void insertData(T) = 0;
     // Search will be diffferent for AVL and BST.
-	virtual bool searchData(T) = 0;
+    virtual bool searchData(T) = 0;
     // Delete will be different for AVL and BST.
-	virtual void deleteData(T) = 0;
+    virtual void deleteData(T) = 0;
+
+public:
     // Count the number of leafs in the tree/
-	int treeLeafsCount();
+    int treeLeafsCount();
     // Count the number of nodes in the tree.
-	int treeNodesCount();
+    int treeNodesCount();
     // Print the data in order.
-	void printOrder();
+    void printOrder();
+    // Print data in reverse order.
+    void preintReverseOrder();
     // Print the data post order.
-	void printPostOrder();
+    void printPostOrder();
     // Print the data pre order.
-	void printPreOrder();
+    void printPreOrder();
 };
 
 template <class T>
 BinaryTree<T>::BinaryTree()
-{   
+{
     // Initialize the poiter to the root to NULL.
-	root = NULL;
+    root = NULL;
 }
 
 template <class T>
 bool BinaryTree<T>::isEmpty()
 {
     // If the root is not pointing to anything then it is empty.
-	return(root == NULL);
+    return (root == NULL);
 }
 
 template <class T>
 int BinaryTree<T>::treeLeafsCount()
 {
-	return this->countLeafs(root);
+    return this->countLeafs(root);
 }
 
 template <class T>
-int BinaryTree<T>::countLeafs(Node<T>*& root)
+int BinaryTree<T>::countLeafs(Node<T> *&root)
 {
-	if (root == NULL)
-		return 0;
-	else if (root->left == NULL && root->right == NULL)
-		return 1;
-	else
-		return countLeafs(root->left) + countLeafs(root->right);
+    if (root == NULL)
+        return 0;
+    else if (root->left == NULL && root->right == NULL)
+        return 1;
+    else
+        return countLeafs(root->left) + countLeafs(root->right);
 }
 
 template <class T>
 int BinaryTree<T>::treeNodesCount()
 {
-	return this->countNodes(root);
+    return this->countNodes(root);
 }
 
 template <class T>
-int BinaryTree<T>::countNodes(Node<T>*& node)
+int BinaryTree<T>::countNodes(Node<T> *&node)
 {
-	if (node == NULL)
-		return 0;
-	else
-		return 1 + countNodes(node->left) + countNodes(node->right);
+    if (node == NULL)
+        return 0;
+    else
+        return 1 + countNodes(node->left) + countNodes(node->right);
 }
 
 template <class T>
 void BinaryTree<T>::printOrder()
 {
-	this->inOrder(root);
+    this->inOrder(root);
+    std::cout << std::endl;
 }
 
 template <class T>
-void BinaryTree<T>::inOrder(Node<T>*& node)
+void BinaryTree<T>::inOrder(Node<T> *&node)
 {
-	if (node != NULL)
-	{
-		inOrder(node->left);
-		std::cout << node->data << std::endl;
-		inOrder(node->right);
-	}
+    if (node != NULL)
+    {
+        std::cout << "Current: " << node->data << std::endl;
+        inOrder(node->left);
+        std::cout << "Value: " << node->data << std::endl;
+        inOrder(node->right);
+    }
+}
+
+template <class T>
+void BinaryTree<T>::preintReverseOrder()
+{
+    this->reverseOrder(root);
+    std::cout << std::endl;
+}
+
+template <class T>
+void BinaryTree<T>::reverseOrder(Node<T> *&node)
+{
+    if (node != NULL)
+    {
+        std::cout << "Current: " << node->data << std::endl;
+        inOrder(node->right);
+        std::cout << "Value: " << node->data << std::endl;
+        inOrder(node->left);
+    }
 }
 
 template <class T>
 void BinaryTree<T>::printPostOrder()
 {
-	this->postOrder(root);
+    this->postOrder(root);
+    std::cout << std::endl;
 }
 
 template <class T>
-void BinaryTree<T>::postOrder(Node<T>*& node)
+void BinaryTree<T>::postOrder(Node<T> *&node)
 {
-	if (node != NULL)
-	{
-		std::cout << node->data << std::endl;
-		postOrder(node->left);
-		postOrder(node->rigth);
-	}
+    if (node != NULL)
+    {
+        std::cout << node->data << " ";
+        postOrder(node->left);
+        postOrder(node->rigth);
+    }
 }
 
 template <class T>
 void BinaryTree<T>::printPreOrder()
 {
-	this->preOrder(root);
+    this->preOrder(root);
 }
 
 template <class T>
-void BinaryTree<T>::preOrder(Node<T>*& node)
+void BinaryTree<T>::preOrder(Node<T> *&node)
 {
-	if (node != NULL)
-	{
-		std::cout << node->data << std::endl;
-		postOrder(node->rigth);
-		postOrder(node->left);
-	}
+    if (node != NULL)
+    {
+        std::cout << node->data << std::endl;
+        postOrder(node->rigth);
+        postOrder(node->left);
+    }
 }
