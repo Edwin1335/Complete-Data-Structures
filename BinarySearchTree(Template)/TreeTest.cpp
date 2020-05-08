@@ -13,7 +13,8 @@ int main()
     myTree.insertData(6);
     myTree.insertData(23);
     myTree.insertData(56);
-    myTree.deleteData(6);
+    myTree.display();
+    myTree.deleteData(2);
     myTree.display();
 
     return 0;

@@ -71,7 +71,7 @@ void BinarySearchTree<T>::makeInsertion(Node<T> *&root, Node<T> *&newNode)
 template <class T>
 void BinarySearchTree<T>::deleteData(T x)
 {
-    this->deleteData(this->root, x);
+    deleteData(this->root, x);
 }
 
 template <class T>
@@ -114,6 +114,9 @@ void BinarySearchTree<T>::deleteData(Node<T> *&node, T x)
             if (current == this->root)
                 this->root = makeDeletion(current);
             else if (trail->data > x)
+                trail->left = makeDeletion(current);
+            else
+                trail->right = makeDeletion(current);
         }
     }
 }
@@ -121,8 +124,26 @@ void BinarySearchTree<T>::deleteData(Node<T> *&node, T x)
 template <class T>
 Node<T> *BinarySearchTree<T>::makeDeletion(Node<T> *&del)
 {
+
     if (del->left == NULL && del->right == NULL)
     {
+        return NULL;
+    }
+    if(del->left == NULL && del->right != NULL)
+    {
+        return del->right;
+    }
+    if(del->left != NULL && del->right == NULL)
+    {
+        return del->left;
+    }
+    if(del->left != NULL && del->right != NULL)
+    {
+        Node<T>* current = del->left;
+        while(current->right != NULL)
+        {
+            current = del->
+        }
     }
 }
 
