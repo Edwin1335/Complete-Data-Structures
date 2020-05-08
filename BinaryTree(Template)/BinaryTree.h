@@ -77,7 +77,7 @@ public:
     // Print the data in order.
     void printOrder();
     // Print data in reverse order.
-    void preintReverseOrder();
+    void printReverseOrder();
     // Print the data post order.
     void printPostOrder();
     // Print the data pre order.
@@ -142,15 +142,14 @@ void BinaryTree<T>::inOrder(Node<T> *&node)
 {
     if (node != NULL)
     {
-        std::cout << "Current: " << node->data << std::endl;
         inOrder(node->left);
-        std::cout << "Value: " << node->data << std::endl;
+        std::cout << node->data << ", ";
         inOrder(node->right);
     }
 }
 
 template <class T>
-void BinaryTree<T>::preintReverseOrder()
+void BinaryTree<T>::printReverseOrder()
 {
     this->reverseOrder(root);
     std::cout << std::endl;
@@ -161,10 +160,9 @@ void BinaryTree<T>::reverseOrder(Node<T> *&node)
 {
     if (node != NULL)
     {
-        std::cout << "Current: " << node->data << std::endl;
-        inOrder(node->right);
-        std::cout << "Value: " << node->data << std::endl;
-        inOrder(node->left);
+        reverseOrder(node->right);
+        std::cout << node->data << ", ";
+        reverseOrder(node->left);
     }
 }
 
@@ -180,7 +178,7 @@ void BinaryTree<T>::postOrder(Node<T> *&node)
 {
     if (node != NULL)
     {
-        std::cout << node->data << " ";
+        std::cout << node->data << ", ";
         postOrder(node->left);
         postOrder(node->rigth);
     }

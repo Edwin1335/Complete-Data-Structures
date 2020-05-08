@@ -22,7 +22,7 @@ int main()
     std::cout << "\nPrinting in order" << std::endl;
     myTree.printOrder();
     std::cout << "\nPrinting reverse order" << std::endl;
-    myTree.preintReverseOrder();
+    myTree.printReverseOrder();
 
     return 0;
 }
