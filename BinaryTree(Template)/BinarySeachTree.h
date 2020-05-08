@@ -9,11 +9,13 @@ private:
 	void display(Node<T>*&, int);
 	void deleteDataPrivate(Node<T>*&, T&);
 	void makeDeletion(Node<T>*&);
+    void makeInsertion(Node<T>*&, Node<T>*&);
 
 public:
 	BinarySearchTree();
 	bool searchData(T);
 	void deleteData(T);
+    void insert(T);
 	void display();
 };
 

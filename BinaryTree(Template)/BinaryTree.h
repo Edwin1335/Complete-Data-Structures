@@ -5,10 +5,11 @@
 #include <map>
 
 using namespace std;
-/*
-	This is an abstract class that will be inherited by Binary Search Tree and AVL Tree.
-	The class will be using templates to make it more versatile for all datatypes.
-*/
+/****************************************************************************
+	This is an abstract class that will be inherited by Binary Search Tree
+    and AVL Tree. The class will be using templates to make it more versatile
+    for all datatypes.
+****************************************************************************/
 
 // Node defintion - Must specify the type of Node.
 template <class T>
@@ -24,90 +25,71 @@ template <class T>
 class BinaryTree
 {
 private:
-	void makeInsertion(Node<T>*&, Node<T>*&);
-	/*
-		Make Insertion funtion will be used in the InsertData funtion so it
-		can iterate recusrsivly. The parameter are two adresses of pointers to nodes
-		one for the root and another for the node being inserted.
-	*/
+    int countLeafs(Node<T>*&);
+    /****************************************************************************
+		The countLeaf funtion will be passed into the treeLeafCount function 
+        (which will return an integer). The function will itearbly loop through 
+        all the nodes and find the leaf node( nodes that have a left and right 
+        null pointers) and count them.
+	****************************************************************************/
 
-	int countLeafs(Node<T>*&);
-	/*
-		The countLeaf funtion will be passed into the treeLeafCount function(which will
-		return an integer). The function will itearbly loop through all the nodes and find
-		the leaf node( nodes that have a left and right null pointers) and count them.
-	*/
+    int countNodes(Node<T>*&);
+    /****************************************************************************
+		Similar to the count leafs funtion, this will count all the nodes in the 
+        tree including the root node.
+	****************************************************************************/
 
-	int countNodes(Node<T>*&);
-	/*
-		Similar to the count leafs funtion, this will count all the nodes in the tree including
-		the root node.
-	*/
-
-	void inOrder(Node<T>*&);
-	/*
+    void inOrder(Node<T>*&);
+    /****************************************************************************
 		This funtion will print the tree in order
-	*/
+	****************************************************************************/
 
-	void postOrder(Node<T>*&);
-	/*
+    void postOrder(Node<T>*&);
+    /****************************************************************************
 		This funtion will print the tree in post order.
-	*/
+	****************************************************************************/
 
-	void preOrder(Node<T>*&);
-	/*
+    void preOrder(Node<T>*&);
+    /****************************************************************************
 		This funtion will print the tree in post order.
-	*/
+	****************************************************************************/
+
 protected:
-	Node<T>* root;
-
-public:
+    Node<T>* root;
+    // Default constructor.
 	BinaryTree();
+    // Chek if tree is empty.
 	bool isEmpty();
+    // Add data to the tree. 
 	void insertData(T);
+    // Search will be diffferent for AVL and BST.
 	virtual bool searchData(T) = 0;
+    // Delete will be different for AVL and BST.
 	virtual void deleteData(T) = 0;
+    // Count the number of leafs in the tree/
 	int treeLeafsCount();
+    // Count the number of nodes in the tree.
 	int treeNodesCount();
+    // Print the data in order.
 	void printOrder();
+    // Print the data post order.
 	void printPostOrder();
+    // Print the data pre order.
 	void printPreOrder();
 };
 
 template <class T>
 BinaryTree<T>::BinaryTree()
-{
+{   
+    // Initialize the poiter to the root to NULL.
 	root = NULL;
 }
 
 template <class T>
 bool BinaryTree<T>::isEmpty()
 {
+    // If the root is not pointing to anything then it is empty.
 	return(root == NULL);
-}
-
-template <class T>
-void BinaryTree<T>::insertData(T x)
-{
-	Node<T>* newNode = new Node<T>;
-	newNode->data = x;
-	newNode->left = NULL;
-	newNode->right = NULL;
-
-	this->makeInsertion(root, newNode);
-}
-
-template <class T>
-void BinaryTree<T>::makeInsertion(Node<T>*& root, Node<T>*& newNode)
-{
-	if (root == NULL)
-		root = newNode;
-	else if (newNode->data < root->data)
-		makeInsertion(root->left, newNode);
-	else if (newNode->data > root->data)
-		makeInsertion(root->right, newNode);
-	else
-		delete newNode;
 }
 
 template <class T>
