@@ -61,7 +61,7 @@ protected:
     // Chek if tree is empty.
 	bool isEmpty();
     // Add data to the tree. 
-	void insertData(T);
+	virtual void insertData(T) = 0;
     // Search will be diffferent for AVL and BST.
 	virtual bool searchData(T) = 0;
     // Delete will be different for AVL and BST.
