@@ -28,6 +28,12 @@ UPDATE: May 1, 2020
     Currently working on StackWithLinkedList(Template).
     Will work my way up the line.
 
+UPDATE: May 5, 2020
+    I have been working on the Binary Tree folder where the binary search tree and 
+    AVL tree will be implemented. I deleted the Binary search tree folder becasuse it 
+    is not complete and its not required to be here.
+    Updated the files to include std::.
+
 NEEDs FIX:
     StackWithLinkedList(Template) -> Stack.H -> inst_mult();
 
