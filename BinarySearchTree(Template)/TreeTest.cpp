@@ -14,7 +14,7 @@ int main()
     myTree.insertData(23);
     myTree.insertData(56);
     myTree.display();
-    myTree.deleteData(2);
+    myTree.deleteData(12);
     myTree.display();
 
     return 0;

@@ -126,24 +126,34 @@ Node<T> *BinarySearchTree<T>::makeDeletion(Node<T> *&del)
 {
 
     if (del->left == NULL && del->right == NULL)
-    {
         return NULL;
-    }
-    if(del->left == NULL && del->right != NULL)
-    {
+    if (del->left == NULL && del->right != NULL)
         return del->right;
-    }
-    if(del->left != NULL && del->right == NULL)
-    {
+    if (del->left != NULL && del->right == NULL)
         return del->left;
-    }
-    if(del->left != NULL && del->right != NULL)
+    if (del->left != NULL && del->right != NULL)
     {
-        Node<T>* current = del->left;
-        while(current->right != NULL)
+        Node<T> *current = del->left;
+        Node<T> *trail = NULL;
+        while (current->right != NULL)
         {
-            current = del->
+            trail = current;
+            current = current->right;
         }
+
+        del->data = current->data;
+        if(trail == NULL)
+        {
+            del->left = current->left;
+            current = NULL;
+        }
+        else
+        {
+            trail->right = current->left;
+            current = NULL;
+        }
+        delete current;
+        return del;
     }
 }
 
