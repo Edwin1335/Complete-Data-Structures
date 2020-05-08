@@ -9,12 +9,14 @@ private:
     void display(Node<T> *&, int);
     void deleteDataPrivate(Node<T> *&, T &);
     void makeDeletion(Node<T> *&);
+    void makeDeletion_Alt(Node<T> *&);
     void makeInsertion(Node<T> *&, Node<T> *&);
 
 public:
     BinarySearchTree();
     bool searchData(T);
     void deleteData(T);
+    void deleteData_Alt(T);
     void insertData(T);
     void display();
 };
@@ -73,6 +75,7 @@ void BinarySearchTree<T>::deleteData(T x)
 {
     this->deleteDataPrivate(this->root, x);
 }
+
 template <class T>
 void BinarySearchTree<T>::deleteDataPrivate(Node<T> *&node, T &x)
 {

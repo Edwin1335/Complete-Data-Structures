@@ -7,7 +7,7 @@ class BinarySearchTree : public BinaryTree<T>
 private:
     bool beginSeach(Node<T> *&, T);
     void deleteData(Node<T> *&, Node<T> *&, T);
-    
+
     /****************************************************************************
 		Make Insertion funtion will be used in the InsertData funtion so it
 		can iterate recusrsivly. The parameter are two adresses of pointers to 
@@ -15,6 +15,7 @@ private:
 	****************************************************************************/
     void makeInsertion(Node<T> *&, Node<T> *&);
     void display(Node<T> *&, int);
+    void makeDeletion(Node<T> *&, Node<T> *&);
 
 public:
     BinarySearchTree();
@@ -22,7 +23,6 @@ public:
     void deleteData(T);
     void insertData(T);
     void display();
-    void makeDeletion(Node<T> *&, Node<T> *&);
 };
 
 template <class T>
@@ -74,7 +74,7 @@ void BinarySearchTree<T>::makeDeletion(Node<T> *&node, Node<T> *&prev)
     {
         delete node;
         prev->left = NULL;
-        prev->right = NULL
+        prev->right = NULL;
     }
     else if (node->right == NULL)
     {
@@ -94,12 +94,12 @@ void BinarySearchTree<T>::makeDeletion(Node<T> *&node, Node<T> *&prev)
 template <class T>
 void BinarySearchTree<T>::insertData(T x)
 {
-    Node<T> newNode = new Node<T>;
+    Node<T>* newNode = new Node<T>;
     newNode->left = NULL;
     newNode->right = NULL;
     newNode->data = x;
 
-    makeInsertion(root, newNode);
+    makeInsertion(this->root, newNode);
 }
 
 template <class T>

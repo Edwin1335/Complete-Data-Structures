@@ -4,8 +4,9 @@
 int main()
 {
 	BinarySearchTree<int> myTree;
-	myTree.insertData(20);
-	
-	system("pause");
-	return 0;
+    myTree.insertData(5);
+    myTree.deleteData(0);
+    myTree.display();
+
+    return 0;
 }
