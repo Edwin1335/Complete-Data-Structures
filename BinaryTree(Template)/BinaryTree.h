@@ -3,8 +3,6 @@
 #include <string>
 #include <iomanip>
 #include <map>
-
-using namespace std;
 /****************************************************************************
 	This is an abstract class that will be inherited by Binary Search Tree
     and AVL Tree. The class will be using templates to make it more versatile
@@ -136,7 +134,7 @@ void BinaryTree<T>::inOrder(Node<T>*& node)
 	if (node != NULL)
 	{
 		inOrder(node->left);
-		cout << node->data << endl;
+		std::cout << node->data << std::endl;
 		inOrder(node->right);
 	}
 }
@@ -152,7 +150,7 @@ void BinaryTree<T>::postOrder(Node<T>*& node)
 {
 	if (node != NULL)
 	{
-		cout << node->data << endl;
+		std::cout << node->data << std::endl;
 		postOrder(node->left);
 		postOrder(node->rigth);
 	}
@@ -169,7 +167,7 @@ void BinaryTree<T>::preOrder(Node<T>*& node)
 {
 	if (node != NULL)
 	{
-		cout << node->data << endl;
+		std::cout << node->data << std::endl;
 		postOrder(node->rigth);
 		postOrder(node->left);
 	}

@@ -81,8 +81,7 @@ void BinarySearchTree<T>::deleteDataPrivate(Node<T> *&node, T &x)
     bool found = false;
 
     if (this->root == NULL)
-        cout << "Cannot delete from an empty tree."
-             << endl;
+        std::cout << "Cannot delete from an empty tree." << std::endl;
     else
     {
         current = this->root;
@@ -104,7 +103,7 @@ void BinarySearchTree<T>::deleteDataPrivate(Node<T> *&node, T &x)
         } //end while
 
         if (current == nullptr)
-            cout << "The item to be deleted is not in the tree." << endl;
+            std::cout << "The item to be deleted is not in the tree." << std::endl;
         else if (found)
         {
             if (current == this->root)
@@ -115,7 +114,7 @@ void BinarySearchTree<T>::deleteDataPrivate(Node<T> *&node, T &x)
                 makeDeletion(trailCurrent->right);
         }
         else
-            cout << "The item to be deleted is not in the tree." << endl;
+            std::cout << "The item to be deleted is not in the tree." << std::endl;
     }
 }
 
@@ -127,8 +126,7 @@ void BinarySearchTree<T>::makeDeletion(Node<T> *&p)
     Node<T> *temp;         //pointer to delete the node
 
     if (p == nullptr)
-        cout << "Error: The node to be deleted does not exist."
-             << endl;
+        std::cout << "Error: The node to be deleted does not exist." << std::endl;
     // Node to be deleted is a leaf node
     else if (p->left == nullptr && p->right == nullptr)
     {
@@ -185,9 +183,12 @@ void BinarySearchTree<T>::display(Node<T> *&t, int level)
     if (t == nullptr)
         return;
     display(t->right, level + 1);
-    cout << endl;
+
+    std::cout << std::endl;
+
     for (int i = 0; i < level; i++)
-        cout << "    ";
-    cout << t->data << endl;
+        std::cout << "    ";
+
+    std::cout << t->data << std::endl;
     display(t->left, level + 1);
 }
