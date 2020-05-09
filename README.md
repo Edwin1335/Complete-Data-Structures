@@ -42,3 +42,10 @@ NEEDs FIX:
     StackWithLinkedList(Template) -> Stack.H -> inst_mult();
     BinarySearchTree(Template) -> BinarySearchTree.h -> makeDeletion();  FINISHED
 
+
+To-Do:
+    Add AVL tree to the binary tree template class. 
+    Create a B-Tree from scratch for practice. 
+    Fix AVL tree code.
+    Check all of the code to see if it works.  
+
