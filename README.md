@@ -8,19 +8,32 @@ All of the code is written in C++ 11 and can be compiled using the
 "g++ -std=c++11 file_name.cpp -o your_executable". Some may not require 
 the specification of "-std=c++11", but its good practice to add it anyway.
 
-Data Structures added to "Complete-Data-Structures":
+<h3>Data Structures added to "Complete-Data-Structures":</h3>
+<ul>
+    <li>
     List
-        Single Linked List
-        Circular Linked List
-        Doubly Linked Lits
+        <ul>
+            <li>Single Linked List</li>
+            <li>Circular Linked List</li>
+            <li>Doubly Linked List</li>
+        </ul>
+    </li>
+    <li>
     Stacks
-        Stack with Arrays
-        Stacks with linked list
+        <ul>
+            <li>Stack with Arrays</li>
+            <li>Stacks with linked list</li>
+        </ul>
+    </li>
+    <li>
     Trees
-        Binary Trees
-        Binary Search Trees
-        AVL Trees
-
+        <ul>
+            <li>Binary Trees</li>
+            <li>Binary Search Trees</li>
+            <li>AVL Trees</li>
+        </ul>
+    </li>
+</ul>
 
 UPDATE: May 1, 2020
     Currently not all classes are completed, still needs to check wich ones.
