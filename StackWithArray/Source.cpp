@@ -2,16 +2,16 @@
 
 int main()
 {
-	Stack<string> theFaggots(4);
-	theFaggots.push("Edwin");
-	theFaggots.push("Aarkachan");
-	theFaggots.push("Jesus");
-	theFaggots.push("Salmon");
-	theFaggots.printRecursively();
+	Stack<string> Friends(4);
+	Friends.push("Edwin");
+	Friends.push("Aarkachan");
+	Friends.push("Jesus");
+	Friends.push("Salmon");
+	Friends.printRecursively();
 
-	theFaggots.reverseStack();
+	Friends.reverseStack();
 	cout << endl << endl;
-	theFaggots.printRecursively();
+	Friends.printRecursively();
 	
 	system("pause");
 	return 0;
