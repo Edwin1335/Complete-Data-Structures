@@ -52,7 +52,7 @@ UPDATE: May 6, 2020
     
 
 NEEDs FIX:
-    StackWithLinkedList(Template) -> Stack.H -> inst_mult();
+    StackWithLinkedList(Template) -> Stack.H -> inst_mult(); COMPLETED
     BinarySearchTree(Template) -> BinarySearchTree.h -> makeDeletion();  FINISHED
 
 

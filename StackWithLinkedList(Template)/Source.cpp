@@ -2,8 +2,7 @@
 
 int main()
 {
-
-    Stack <std::string> family;
+    Stack<std::string> family;
     family.push_back("Ninfa");
     family.push_back("EDwin");
     family.push_back("Kata");
@@ -11,9 +10,14 @@ int main()
     family.push_back("Maribey");
 
     family.print();
-    family.print_reverse();
-
+    std::cout << "\nDeleting multiple\n"
+              << std::endl;
+    family.del_mult(10);
+    family.print();
+    std::cout << "\nInserting multiple\n"
+              << std::endl;
     family.ins_mult();
+    family.print();
 
-	return 0;
+    return 0;
 }

@@ -15,6 +15,7 @@ private:
 
 public:
     Stack();
+    ~Stack();
     void push_back(T);
     T get_top();
     void pop_top();
@@ -38,7 +39,7 @@ Stack<T>::Stack()
 /**************************************************************************************
 	Push back is a funtion that is called to add a new value to the stack, we call it 
     push back because it resembles pushing a stack back one more unit. Create a node 
-    and added to the top of the satck.
+    and added to the top of the stack.
 ***************************************************************************************/
 template <class T>
 void Stack<T>::push_back(T x)
@@ -106,9 +107,16 @@ template <class T>
 void Stack<T>::ins_mult()
 {
     T x;
-    while(std::getline(std::cin, x)) //&& x != "stop")
+    while (std::getline(std::cin, x)) //&& x != "stop")
     {
-        push_back(x);
+        if (x != "")
+        {
+            push_back(x);
+        }
+        else
+        {
+            break;
+        }
     }
 }
 
@@ -151,4 +159,19 @@ void Stack<T>::print_reverse()
         std::cout << x << std::endl;
         this->push_back(x);
     }
+}
+
+/**************************************************************************************
+	Remove the stack from memory by looping and deleting all values until the stack
+    is empty. Finally delete the pointer as well.
+***************************************************************************************/
+template <class T>
+Stack<T>::~Stack()
+{
+    while (!this->isEmpty())
+    {
+        this->pop_top();
+    }
+
+    delete top;
 }
