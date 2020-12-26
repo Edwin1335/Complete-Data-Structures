@@ -1,8 +1,6 @@
 # Inheritance
-</br>
 
 <h2><u><b>Book Notes</b></u></h2>
-</br>
 
 <h4>Inheritance</h4>
 <ul>
