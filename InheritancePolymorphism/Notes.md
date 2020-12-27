@@ -61,4 +61,33 @@
         base class functions is that overridden functions are dynamically bound, and redefined functions are statically bound. Only 
         virtual functions can be overriden.
     </li>
+    <li>
+        When you write a class with a destructor, and that class could potentially become a base class, you should always declare the destructor
+        virtual. This is because the compiler will perform static binding on the destructor if it is not declared visrtual. This can lead to problems
+        when a base class pointer or reference variable references a derived class object. If the dereived class has its own destructir, it will not 
+        execute when the object is destroyed or gous out of scope. 
+    </li>
+    <li>
+        The <i>Override</i> key word tesll the compiler that the function is suppoed to override a function in the base class.
+    </li>
+    <li>
+        When a function is declared with the <i>final</i> key word, it cannot be overridden in a derived class. 
+    </li>
+</ul>
+
+<h4>Abstract Classes</h4>
+<ul>
+	<li>
+       An abstract base class cannot be instantiated, but other classes are derived from it.
+    </li>
+    <li>
+        A pure virtual function is a virtual member fucntion of a base class that must be overriden. When a class contains
+        a pure virtual function as a member, that class becomes an abstract class.
+    </li>
+    <li>
+        Pure vistual functions have no body, or definition, in the base class.
+    </li>
+    <li>
+        Pure vistual functions MUST be overriden.
+    </li>
 </ul>
